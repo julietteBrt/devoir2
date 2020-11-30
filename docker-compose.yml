@@ -1,0 +1,18 @@
+version: "3"
+services:
+  db:
+    image: postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    environment:
+      - POSTGRES_USER= "user"
+      - POSTGRES_PASSWORD= "password"
+      - POSTGRES_DB= "database"
+      - CSV_FILENAME= "data.csv"
+    ports:
+      - "5432:5432"
+  manager:
+    build: .
+
+volumes:
+  postgres_data:
